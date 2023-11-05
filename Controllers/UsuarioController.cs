@@ -36,6 +36,27 @@ namespace tl2_tp09_2023_lucianobonilla27.Controller
         return Ok(usuarios);
     }
 
+    [HttpGet]
+    [Route("ListarUsuarioPorId")]
+    public IActionResult ListarUsuarioPorId(int id){
+        var usuario = manejo.ObtenerUsuarioPorId(id);
+        if (usuario.NombreDeUsuario != null)
+        {
+            return Ok(usuario);
+        }else
+        {
+            return BadRequest($"No se encontro el usuario con id={id}");
+        }
+        
+    }
+
+    [HttpPut]
+    [Route("ActualizarUsuario")]
+    public IActionResult ActualizarUsuario(int id,Usuario actualizado){
+        manejo.ModificarUsuario(id,actualizado);
+        return Ok("Usuario actualizado con exito");
+    }
+
       
     }
 }

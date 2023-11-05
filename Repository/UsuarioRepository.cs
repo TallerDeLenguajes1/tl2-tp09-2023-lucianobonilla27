@@ -30,7 +30,7 @@ namespace tl2_tp09_2023_lucianobonilla27.Models
 
     public void ModificarUsuario(int id, Usuario usuarioModificado)
     {
-       var query = $"UPDATE Usuario SET nombre_de_usuario = (@nombre_de_usuario) WHERE id=@idUSuario";
+       var query = $"UPDATE Usuario SET nombre_de_usuario = (@nombre_de_usuario) WHERE id=@idUsuario";
             using (SQLiteConnection connection = new SQLiteConnection(cadenaConexion))
             {
 
